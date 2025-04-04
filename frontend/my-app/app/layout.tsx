@@ -3,6 +3,8 @@ import "@/app/globals.css"
 import { ThemeProvider } from "../components/theme-provider"
 import type { Metadata } from "next"
 import { Jost } from "next/font/google"
+import { Navbar } from "./component/navbar"
+import { Footer } from "./component/footer"
 
 // Initialize Jost font
 const jost = Jost({ subsets: ["latin"], variable: "--font-jost" });
@@ -22,7 +24,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={jost.variable}>
       <body className="min-h-screen font-jost">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} disableTransitionOnChange>
-          {children}
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+            <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
         </ThemeProvider>
       </body>
     </html>

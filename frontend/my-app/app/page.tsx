@@ -6,15 +6,13 @@ import { Button } from "@/components/ui/button"
 import { GamepadIcon as GameController, Trophy, Users, Zap, ChevronRight, Menu, X } from "lucide-react"
 import { useState } from "react"
 import { ThemeToggle } from "./component/theme-toggle"
-import FeaturedGames from "./homepage/featuredgame"
+import FeaturedGames from "./component/featuredgame"
 
 export default function GamingLandingPage() {
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900 dark:bg-black dark:text-white flex flex-col">
-      <Navbar />
       <HeroSection />
       <MainSection />
-      <Footer />
     </div>
   )
 }
