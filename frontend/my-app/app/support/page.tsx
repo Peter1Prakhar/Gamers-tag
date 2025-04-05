@@ -77,7 +77,7 @@ export default function SupportPage() {
                 <FileText className="h-12 w-12 text-red-600 mb-4" />
                 <h3 className="text-xl font-bold">Submit a Ticket</h3>
                 <p className="text-zinc-600 dark:text-gray-400 mt-2">
-                  Create a support ticket and we'll get back to you as soon as possible.
+                  {`Create a support ticket and we'll get back to you as soon as possible.`}
                 </p>
               </div>
 

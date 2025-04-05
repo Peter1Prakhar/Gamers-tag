@@ -9,7 +9,8 @@ import {
 } from "motion/react";
 import { JSX, useEffect, useRef, useState } from "react";
 
-interface PointerProps extends Omit<HTMLMotionProps<"div">, "ref"> {}
+// ✅ Use type alias to avoid eslint no-empty-interface warning
+type PointerProps = Omit<HTMLMotionProps<"div">, "ref">;
 
 /**
  * A custom pointer component that displays an animated cursor.
@@ -32,26 +33,18 @@ export function Pointer({
 
   useEffect(() => {
     if (typeof window !== "undefined" && containerRef.current) {
-      // Get the parent element directly from the ref
       const parentElement = containerRef.current.parentElement;
 
       if (parentElement) {
-        // Add cursor-none to parent
         parentElement.style.cursor = "none";
 
-        // Add event listeners to parent
         const handleMouseMove = (e: MouseEvent) => {
           x.set(e.clientX);
           y.set(e.clientY);
         };
 
-        const handleMouseEnter = () => {
-          setIsActive(true);
-        };
-
-        const handleMouseLeave = () => {
-          setIsActive(false);
-        };
+        const handleMouseEnter = () => setIsActive(true);
+        const handleMouseLeave = () => setIsActive(false);
 
         parentElement.addEventListener("mousemove", handleMouseMove);
         parentElement.addEventListener("mouseenter", handleMouseEnter);
@@ -79,18 +72,9 @@ export function Pointer({
               left: x,
               ...style,
             }}
-            initial={{
-              scale: 0,
-              opacity: 0,
-            }}
-            animate={{
-              scale: 1,
-              opacity: 1,
-            }}
-            exit={{
-              scale: 0,
-              opacity: 0,
-            }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
             {...props}
           >
             {children || (
