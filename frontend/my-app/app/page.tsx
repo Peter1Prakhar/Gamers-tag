@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { GamepadIcon as Trophy, Users, Zap, Menu } from "lucide-react"
+import { GamepadIcon as Trophy, Users, Zap} from "lucide-react"
 import FeaturedGames from "./component/featuredgame"
 
 export default function GamingLandingPage() {
