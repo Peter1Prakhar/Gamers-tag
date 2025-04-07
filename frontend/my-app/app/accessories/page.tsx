@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Filter, Search, SlidersHorizontal, Grid, List, Star } from "lucide-react"
 

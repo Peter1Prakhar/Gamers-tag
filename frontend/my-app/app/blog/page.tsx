@@ -51,8 +51,8 @@ export default function BlogPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">10 Essential Products Every Home Needs This Summer</h3>
                 <p className="text-zinc-600 dark:text-gray-400 mb-6">
-                  Summer is just around the corner, and it's time to prepare your home for the hot season. From cooling
-                  solutions to outdoor entertainment, we've compiled a list of must-have products that will make your
+                  Summer is just around the corner, and it&aposs time to prepare your home for the hot season. From cooling
+                  solutions to outdoor entertainment, we&aposve compiled a list of must-have products that will make your
                   summer more enjoyable and comfortable.
                 </p>
                 <div className="mt-auto">

@@ -14,7 +14,7 @@ export function Footer() {
                 <div className="absolute inset-0 border border-red-600 rotate-45"></div>
               </div>
               <span className="font-bold text-xl tracking-tight">
-                GAMER'S<span className="text-red-600"> TAG</span>
+                GAMER&aposS<span className="text-red-600"> TAG</span>
               </span>
             </Link>
             <p className="text-zinc-600 dark:text-gray-400 mb-4">
