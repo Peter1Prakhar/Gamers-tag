@@ -1,19 +1,18 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Filter, Search, SlidersHorizontal, Grid, List, Star } from "lucide-react"
+import { Filter, Search, SlidersHorizontal, Grid, List } from "lucide-react"
 
-export default function GamesPage() {
+export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900 dark:bg-black dark:text-white flex flex-col">
       <main className="flex-1">
         <div className="container mx-auto px-4 py-8">
           <div className="mb-8">
-            <h1 className="text-4xl font-bold mb-4">Games</h1>
+            <h1 className="text-4xl font-bold mb-4">All Products</h1>
             <div className="h-1 w-24 bg-red-600 mb-8"></div>
             <p className="text-zinc-600 dark:text-gray-400 max-w-3xl">
-              Browse our extensive collection of games for all platforms. From AAA titles to indie gems, find your next
-              gaming adventure.
+              Browse our extensive collection of high-quality products at competitive prices.
             </p>
           </div>
 
@@ -23,7 +22,7 @@ export default function GamesPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-zinc-400" />
               <input
                 type="text"
-                placeholder="Search games..."
+                placeholder="Search products..."
                 className="w-full pl-10 pr-4 py-2 bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 focus:outline-none focus:border-red-600"
               />
             </div>
@@ -37,28 +36,28 @@ export default function GamesPage() {
             </Button>
           </div>
 
-          {/* Game Categories */}
+          {/* Product Categories */}
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-6 relative inline-block">
-              Game Genres
+              Categories
               <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-red-600"></span>
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {[
-                "Action",
-                "Adventure",
-                "RPG",
-                "Strategy",
+                "Electronics",
+                "Fashion",
+                "Home",
+                "Beauty",
                 "Sports",
-                "Racing",
-                "Puzzle",
-                "Simulation",
-                "FPS",
-                "MOBA",
-                "Battle Royale",
-                "Horror",
+                "Books",
+                "Toys",
+                "Jewelry",
+                "Automotive",
+                "Garden",
+                "Health",
+                "Office",
               ].map((category) => (
-                <Link href={`/games/genre/${category.toLowerCase()}`} key={category}>
+                <Link href={`/categories/${category.toLowerCase()}`} key={category}>
                   <div className="bg-white dark:bg-zinc-900 p-4 text-center hover:border-red-600 border border-transparent transition-colors relative">
                     <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-red-600"></div>
                     <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-red-600"></div>
@@ -77,29 +76,28 @@ export default function GamesPage() {
               <SlidersHorizontal className="h-5 w-5 text-red-600" />
               <span className="font-medium">Filter By:</span>
               <select className="bg-zinc-100 dark:bg-zinc-800 border-none p-2 text-sm">
-                <option>All Platforms</option>
-                <option>PlayStation 5</option>
-                <option>Xbox Series X</option>
-                <option>Nintendo Switch</option>
-                <option>PC</option>
+                <option>All Products</option>
+                <option>New Arrivals</option>
+                <option>Best Sellers</option>
+                <option>On Sale</option>
               </select>
               <select className="bg-zinc-100 dark:bg-zinc-800 border-none p-2 text-sm">
                 <option>Price: All</option>
-                <option>Under $20</option>
-                <option>$20 - $40</option>
-                <option>$40 - $60</option>
-                <option>$60+</option>
+                <option>Under $25</option>
+                <option>$25 - $50</option>
+                <option>$50 - $100</option>
+                <option>$100+</option>
               </select>
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <span className="text-sm">Sort By:</span>
                 <select className="bg-zinc-100 dark:bg-zinc-800 border-none p-2 text-sm">
-                  <option>New Releases</option>
+                  <option>Featured</option>
                   <option>Price: Low to High</option>
                   <option>Price: High to Low</option>
+                  <option>Newest</option>
                   <option>Best Selling</option>
-                  <option>Top Rated</option>
                 </select>
               </div>
               <div className="flex items-center gap-2">
@@ -113,98 +111,17 @@ export default function GamesPage() {
             </div>
           </div>
 
-          {/* Games Grid */}
+          {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-            {[
-              {
-                title: "Cyberpunk 2078",
-                genre: "Action RPG",
-                platform: "PS5, Xbox, PC",
-                price: 59.99,
-                rating: 4.5,
-                isNew: true,
-              },
-              {
-                title: "Galactic Warfare",
-                genre: "FPS",
-                platform: "PS5, Xbox, PC",
-                price: 69.99,
-                rating: 4.8,
-                isNew: true,
-              },
-              {
-                title: "Legend of Heroes",
-                genre: "Adventure",
-                platform: "Switch, PC",
-                price: 49.99,
-                rating: 4.7,
-                isNew: false,
-              },
-              {
-                title: "Racing Evolution",
-                genre: "Racing",
-                platform: "PS5, Xbox",
-                price: 54.99,
-                rating: 4.2,
-                isNew: false,
-              },
-              { title: "Fantasy Quest", genre: "RPG", platform: "PS5, PC", price: 59.99, rating: 4.9, isNew: false },
-              {
-                title: "Zombie Apocalypse",
-                genre: "Horror",
-                platform: "PS5, Xbox, PC",
-                price: 39.99,
-                rating: 4.3,
-                isNew: false,
-              },
-              {
-                title: "Football Manager 2025",
-                genre: "Sports",
-                platform: "PS5, Xbox, PC",
-                price: 49.99,
-                rating: 4.6,
-                isNew: false,
-              },
-              {
-                title: "Space Explorers",
-                genre: "Simulation",
-                platform: "PC",
-                price: 29.99,
-                rating: 4.4,
-                isNew: false,
-              },
-              { title: "Tactical Ops", genre: "Strategy", platform: "PC", price: 19.99, rating: 4.1, isNew: false },
-              {
-                title: "Ninja Warriors",
-                genre: "Action",
-                platform: "PS5, Switch",
-                price: 39.99,
-                rating: 4.0,
-                isNew: false,
-              },
-              {
-                title: "Dragon Slayer",
-                genre: "RPG",
-                platform: "PS5, Xbox, PC",
-                price: 59.99,
-                rating: 4.7,
-                isNew: false,
-              },
-              {
-                title: "Puzzle Master",
-                genre: "Puzzle",
-                platform: "Switch, Mobile",
-                price: 14.99,
-                rating: 4.5,
-                isNew: false,
-              },
-            ].map((game, index) => (
+            {Array.from({ length: 12 }).map((_, index) => (
               <div
                 key={index}
                 className="group bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 hover:border-red-600 transition-colors relative"
               >
-                {game.isNew && (
-                  <div className="absolute top-0 right-0 bg-red-600 text-white text-xs px-2 py-1 z-10">NEW</div>
+                {index < 3 && (
+                  <div className="absolute top-0 right-0 bg-red-600 text-white text-xs px-2 py-1 z-10">
+                    {index === 0 ? "NEW" : index === 1 ? "SALE" : "BEST SELLER"}
+                  </div>
                 )}
                 <div className="absolute top-0 left-0 w-3 h-3 border-l border-t border-red-600"></div>
                 <div className="absolute top-0 right-0 w-3 h-3 border-r border-t border-red-600"></div>
@@ -212,30 +129,29 @@ export default function GamesPage() {
                 <div className="absolute bottom-0 right-0 w-3 h-3 border-r border-b border-red-600"></div>
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src={`/image5.jpeg`}
-                    alt={game.title}
+                    src={`/placeholder.svg?height=300&width=400&text=Product ${index + 1}`}
+                    alt={`Product ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-4">
-                  <div className="flex items-center gap-1 mb-2">
-                    <div className="flex">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${i < Math.floor(game.rating) ? "text-yellow-500 fill-yellow-500" : "text-zinc-300"}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-xs text-zinc-500">{game.rating}</span>
-                  </div>
-                  <h3 className="font-bold text-lg mb-1">{game.title}</h3>
-                  <p className="text-zinc-600 dark:text-gray-400 text-sm mb-1">{game.genre}</p>
-                  <p className="text-zinc-500 dark:text-gray-500 text-xs mb-3">{game.platform}</p>
+                  <h3 className="font-bold text-lg mb-1">Premium Product {index + 1}</h3>
+                  <p className="text-zinc-600 dark:text-gray-400 text-sm mb-3">
+                    {["Electronics", "Fashion", "Home", "Beauty"][index % 4]}
+                  </p>
                   <div className="flex justify-between items-center">
-                    <span className="text-red-600 font-medium">${game.price}</span>
-                    <Link href={`/games/${game.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                    <div>
+                      {index % 3 === 1 ? (
+                        <div className="flex items-center gap-2">
+                          <span className="text-red-600 font-medium">$49.99</span>
+                          <span className="text-zinc-500 line-through text-sm">$69.99</span>
+                        </div>
+                      ) : (
+                        <span className="text-red-600 font-medium">${39.99 + index * 5}.99</span>
+                      )}
+                    </div>
+                    <Link href={`/products/product-${index + 1}`}>
                       <Button className="bg-red-600 hover:bg-red-700 text-white rounded-none text-sm px-3 py-1 h-auto relative overflow-hidden">
                         <span className="relative z-10">Add to Cart</span>
                         <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white"></span>

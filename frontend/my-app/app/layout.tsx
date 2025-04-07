@@ -5,15 +5,15 @@ import type { Metadata } from "next"
 import { Jost } from "next/font/google"
 import { Navbar } from "./component/navbar"
 import { Footer } from "./component/footer"
+import SplashCursor from "@/components/SplashColor"
 
 // Initialize Jost font
 const jost = Jost({ subsets: ["latin"], variable: "--font-jost" });
 
 export const metadata: Metadata = {
-  title: "GameZone - Ultimate Gaming Platform",
+  title: "Gamer's Tag - Ultimate Gaming Platform",
   description:
-    "Join the ultimate gaming platform where legends are born. Compete in tournaments, connect with gamers, and elevate your gaming experience.",
-}
+    "Shop the latest games, consoles, and accessories. From AAA titles to limited edition collectibles, find everything you need to enhance your gaming setup."}
 
 export default function RootLayout({
   children,
@@ -25,6 +25,7 @@ export default function RootLayout({
       <body className="min-h-screen font-jost">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} disableTransitionOnChange>
         <div className="flex flex-col min-h-screen">
+          <SplashCursor/>
           <Navbar />
             <main className="flex-1">{children}</main>
           <Footer />

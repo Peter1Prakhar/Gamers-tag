@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { GamepadIcon as GameController } from "lucide-react"
+import { GamepadIcon as GameController, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Footer() {
@@ -14,18 +14,44 @@ export function Footer() {
                 <div className="absolute inset-0 border border-red-600 rotate-45"></div>
               </div>
               <span className="font-bold text-xl tracking-tight">
-                GAME<span className="text-red-600">ZONE</span>
+                GAMER'S<span className="text-red-600"> TAG</span>
               </span>
             </Link>
             <p className="text-zinc-600 dark:text-gray-400 mb-4">
-              The ultimate destination for gamers seeking competition, community, and cutting-edge content.
+              Your one-stop destination for all gaming needs. From the latest games to premium accessories, level up
+              your gaming experience with us.
             </p>
-            <div className="flex gap-4">{/* Social media icons would go here */}</div>
+            <div className="flex gap-4">
+              <Link
+                href="#"
+                className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition-colors"
+              >
+                <Twitter className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-600 transition-colors"
+              >
+                <Youtube className="h-5 w-5" />
+              </Link>
+            </div>
           </div>
 
           <div>
             <h3 className="font-bold text-lg mb-4 relative inline-block">
-              Quick Links
+              Shop
               <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-red-600"></span>
             </h3>
             <ul className="space-y-2">
@@ -40,38 +66,38 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/tournaments"
+                  href="/consoles"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Tournaments
+                  Consoles
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/news"
+                  href="/accessories"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  News
+                  Accessories
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/community"
+                  href="/merchandise"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Community
+                  Merchandise
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/support"
+                  href="/deals"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Support
+                  Deals
                 </Link>
               </li>
             </ul>
@@ -79,7 +105,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-bold text-lg mb-4 relative inline-block">
-              Support
+              Customer Service
               <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-red-600"></span>
             </h3>
             <ul className="space-y-2">
@@ -103,29 +129,29 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/shipping"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Terms of Service
+                  Shipping Policy
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/privacy"
+                  href="/returns"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Privacy Policy
+                  Returns & Refunds
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/refund-policy"
+                  href="/contact"
                   className="text-zinc-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-500 transition-colors flex items-center gap-1"
                 >
                   <span className="w-1 h-1 bg-red-600"></span>
-                  Refund Policy
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -137,7 +163,7 @@ export function Footer() {
               <span className="absolute -bottom-1 left-0 w-1/2 h-0.5 bg-red-600"></span>
             </h3>
             <p className="text-zinc-600 dark:text-gray-400 mb-4">
-              Subscribe to get updates on new games and tournaments.
+              Subscribe to get updates on new releases, restocks, and exclusive deals.
             </p>
             <div className="flex">
               <input
@@ -153,11 +179,28 @@ export function Footer() {
                 <span className="absolute inset-y-0 left-0 w-0.5 bg-white"></span>
               </Button>
             </div>
+            <div className="mt-4">
+              <p className="text-zinc-600 dark:text-gray-400 text-sm">We accept:</p>
+              <div className="flex gap-2 mt-2">
+                <div className="bg-white dark:bg-zinc-800 p-1 h-8 w-12 flex items-center justify-center">
+                  <span className="text-xs font-bold">VISA</span>
+                </div>
+                <div className="bg-white dark:bg-zinc-800 p-1 h-8 w-12 flex items-center justify-center">
+                  <span className="text-xs font-bold">MC</span>
+                </div>
+                <div className="bg-white dark:bg-zinc-800 p-1 h-8 w-12 flex items-center justify-center">
+                  <span className="text-xs font-bold">AMEX</span>
+                </div>
+                <div className="bg-white dark:bg-zinc-800 p-1 h-8 w-12 flex items-center justify-center">
+                  <span className="text-xs font-bold">PAYPAL</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-zinc-200 dark:border-zinc-800 pt-8 text-center text-zinc-600 dark:text-gray-400 text-sm">
-          <p>&copy; {new Date().getFullYear()} GAMEZONE. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} GAMESTORE. All rights reserved.</p>
         </div>
       </div>
     </footer>

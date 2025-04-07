@@ -3,11 +3,12 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { GamepadIcon as GameController, Menu, X } from "lucide-react"
+import { GamepadIcon as GameController, Menu, X, ShoppingCart, Search } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // Close menu when clicking outside
   const handleClickOutside = () => {
@@ -25,12 +26,21 @@ export function Navbar() {
             <div className="absolute inset-0 border border-red-600 rotate-45"></div>
           </div>
           <span className="font-bold text-xl tracking-tight">
-            GAME<span className="text-red-600">ZONE</span>
+            GAMER'S<span className="text-red-600"> TAG</span>
           </span>
         </Link>
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 lg:hidden">
+          <button className="text-zinc-900 dark:text-white p-2" onClick={() => setIsSearchOpen(!isSearchOpen)}>
+            <Search className="h-5 w-5" />
+          </button>
+          <Link href="/cart" className="text-zinc-900 dark:text-white p-2 relative">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+              3
+            </span>
+          </Link>
           <ThemeToggle />
           <Button
             variant="ghost"
@@ -55,36 +65,50 @@ export function Navbar() {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
           </Link>
           <Link
-            href="/news"
+            href="/consoles"
             className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors relative group"
           >
-            News
+            Consoles
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
           </Link>
           <Link
-            href="/tournaments"
+            href="/accessories"
             className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors relative group"
           >
-            Tournaments
+            Accessories
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
           </Link>
           <Link
-            href="/community"
+            href="/merchandise"
             className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors relative group"
           >
-            Community
+            Merchandise
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
           </Link>
           <Link
-            href="/support"
+            href="/deals"
             className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors relative group"
           >
-            Support
+            Deals
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full"></span>
           </Link>
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search games, consoles..."
+              className="bg-zinc-100 dark:bg-zinc-800 border-none rounded-none py-2 pl-10 pr-4 w-48 focus:w-64 transition-all focus:outline-none focus:ring-1 focus:ring-red-600"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-zinc-500 dark:text-zinc-400" />
+          </div>
+          <Link href="/cart" className="text-zinc-900 dark:text-white p-2 relative">
+            <ShoppingCart className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+              3
+            </span>
+          </Link>
           <ThemeToggle />
           <Link href="/auth/sign-in">
             <Button className="bg-red-600 hover:bg-red-700 text-white rounded-none relative overflow-hidden group">
@@ -95,20 +119,23 @@ export function Navbar() {
               <span className="absolute inset-y-0 left-0 w-0.5 bg-white"></span>
             </Button>
           </Link>
-          <Link href="/auth/sign-up">
-            <Button
-              variant="outline"
-              className="text-red-600 border-red-600 hover:bg-red-900/20 hover:text-white rounded-none relative overflow-hidden"
-            >
-              <span className="relative z-10">Register</span>
-              <span className="absolute inset-x-0 bottom-0 h-0.5 bg-red-600"></span>
-              <span className="absolute inset-y-0 right-0 w-0.5 bg-red-600"></span>
-              <span className="absolute inset-x-0 top-0 h-0.5 bg-red-600"></span>
-              <span className="absolute inset-y-0 left-0 w-0.5 bg-red-600"></span>
-            </Button>
-          </Link>
         </div>
       </div>
+
+      {/* Mobile search bar */}
+      {isSearchOpen && (
+        <div className="px-4 py-2 border-t border-zinc-200 dark:border-zinc-800 lg:hidden">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search games, consoles..."
+              className="bg-zinc-100 dark:bg-zinc-800 border-none rounded-none py-2 pl-10 pr-4 w-full focus:outline-none focus:ring-1 focus:ring-red-600"
+              autoFocus
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-zinc-500 dark:text-zinc-400" />
+          </div>
+        </div>
+      )}
 
       {/* Mobile menu */}
       {isMenuOpen && (
@@ -125,36 +152,36 @@ export function Navbar() {
                 Games
               </Link>
               <Link
-                href="/news"
+                href="/consoles"
                 className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center"
                 onClick={handleClickOutside}
               >
                 <span className="w-1.5 h-1.5 bg-red-600 mr-2"></span>
-                News
+                Consoles
               </Link>
               <Link
-                href="/tournaments"
+                href="/accessories"
                 className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center"
                 onClick={handleClickOutside}
               >
                 <span className="w-1.5 h-1.5 bg-red-600 mr-2"></span>
-                Tournaments
+                Accessories
               </Link>
               <Link
-                href="/community"
+                href="/merchandise"
                 className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center"
                 onClick={handleClickOutside}
               >
                 <span className="w-1.5 h-1.5 bg-red-600 mr-2"></span>
-                Community
+                Merchandise
               </Link>
               <Link
-                href="/support"
+                href="/deals"
                 className="text-zinc-900 dark:text-white hover:text-red-600 dark:hover:text-red-500 transition-colors py-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center"
                 onClick={handleClickOutside}
               >
                 <span className="w-1.5 h-1.5 bg-red-600 mr-2"></span>
-                Support
+                Deals
               </Link>
 
               <div className="flex flex-col gap-3 mt-2">

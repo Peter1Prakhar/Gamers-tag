@@ -33,7 +33,7 @@ export default function FeaturedGames() {
 
               {/* Game Details */}
               <CardHeader className="relative pb-2">
-                <CardTitle className="text-xl font-bold">Game Title {game}</CardTitle>
+                <CardTitle className="text-xl font-medium">Game Title {game}</CardTitle>
                 <CardDescription className="text-sm text-zinc-600 dark:text-gray-400">
                   Action, Adventure
                 </CardDescription>
@@ -44,8 +44,8 @@ export default function FeaturedGames() {
                 {/* Image */}
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image
-                    src={`/placeholder.svg?height=300&width=400&text=Game ${game}`}
-                    alt={`Game ${game}`}
+                    src={`/image2.jpg`}
+                    alt={``}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />

@@ -4,9 +4,12 @@ export default {
     content: ["./app/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
   	extend: {
-      fontFamily: {
-        jost: ["var(--font-jost)", "sans-serif"],
-      },
+  		fontFamily: {
+  			jost: [
+  				'var(--font-jost)',
+  				'sans-serif'
+  			]
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -52,6 +55,19 @@ export default {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		animation: {
+  			'background-position-spin': 'background-position-spin 3000ms infinite alternate'
+  		},
+  		keyframes: {
+  			'background-position-spin': {
+  				'0%': {
+  					backgroundPosition: 'top center'
+  				},
+  				'100%': {
+  					backgroundPosition: 'bottom center'
+  				}
   			}
   		}
   	}
