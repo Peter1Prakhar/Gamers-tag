@@ -26,7 +26,7 @@ export function Navbar() {
             <div className="absolute inset-0 border border-red-600 rotate-45"></div>
           </div>
           <span className="font-bold text-xl tracking-tight">
-            GAMER&aposS<span className="text-red-600"> TAG</span>
+          GAMER&#39;S<span className="text-red-600"> TAG</span>
           </span>
         </Link>
 

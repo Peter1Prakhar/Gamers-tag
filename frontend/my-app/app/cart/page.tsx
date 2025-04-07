@@ -241,7 +241,7 @@ export default function CartPage() {
               <GameController className="h-16 w-16 text-red-600 mx-auto mb-4" />
               <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
               <p className="text-zinc-600 dark:text-gray-400 mb-6">
-                Looks like you haven&apost added any games or accessories to your cart yet.
+                Looks like you haven&#39;t added any games or accessories to your cart yet.
               </p>
               <Link href="/games">
                 <Button className="bg-red-600 hover:bg-red-700 text-white rounded-none relative overflow-hidden">
