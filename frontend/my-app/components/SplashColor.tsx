@@ -1,10 +1,19 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 
+type TextureFormat = {
+  internalFormat: number ;
+  format: number;
+  type?: number;
+};
+
 interface ColorRGB {
   r: number;
   g: number;
   b: number;
+}
+interface OES_texture_half_float {
+  HALF_FLOAT_OES: number;
 }
 
 interface SplashCursorProps {
@@ -75,11 +84,11 @@ export default function SplashCursor({
     if (!canvas) return; // Guard canvas early
 
     // Pointer and config setup
-    let pointers: Pointer[] = [pointerPrototype()];
+    const pointers: Pointer[] = [pointerPrototype()];
 
     // All these are guaranteed numbers due to destructuring defaults
     // So we cast them to remove TS warnings:
-    let config = {
+    const config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
       DYE_RESOLUTION: DYE_RESOLUTION!,
       CAPTURE_RESOLUTION: CAPTURE_RESOLUTION!,
@@ -156,11 +165,11 @@ export default function SplashCursor({
 
       const halfFloatTexType = isWebGL2
         ? (gl as WebGL2RenderingContext).HALF_FLOAT
-        : (halfFloat && (halfFloat as any).HALF_FLOAT_OES) || 0;
+        : (halfFloat && (halfFloat as OES_texture_half_float).HALF_FLOAT_OES) || 0;
 
-      let formatRGBA: any;
-      let formatRG: any;
-      let formatR: any;
+      let formatRGBA: TextureFormat | null;
+      let formatRG: TextureFormat | null;
+      let formatR: TextureFormat | null;
 
       if (isWebGL2) {
         formatRGBA = getSupportedFormat(
@@ -910,8 +919,8 @@ export default function SplashCursor({
         dye = createDoubleFBO(
           dyeRes.width,
           dyeRes.height,
-          rgba.internalFormat,
-          rgba.format,
+          rgba?.internalFormat ?? gl.RGBA,
+          rgba?.format ?? gl.RGBA,
           texType,
           filtering
         );
@@ -920,8 +929,8 @@ export default function SplashCursor({
           dye,
           dyeRes.width,
           dyeRes.height,
-          rgba.internalFormat,
-          rgba.format,
+          rgba?.internalFormat ?? gl.RGBA,
+          rgba?.format ?? gl.RGBA,
           texType,
           filtering
         );
@@ -931,8 +940,8 @@ export default function SplashCursor({
         velocity = createDoubleFBO(
           simRes.width,
           simRes.height,
-          rg.internalFormat,
-          rg.format,
+          rg?.internalFormat ?? gl.RGBA,
+          rg?.format ?? gl.RGBA,
           texType,
           filtering
         );
@@ -941,8 +950,8 @@ export default function SplashCursor({
           velocity,
           simRes.width,
           simRes.height,
-          rg.internalFormat,
-          rg.format,
+          rg?.internalFormat ?? gl.RGBA,
+          rg?.format ?? gl.RGBA,
           texType,
           filtering
         );
@@ -951,24 +960,24 @@ export default function SplashCursor({
       divergence = createFBO(
         simRes.width,
         simRes.height,
-        r.internalFormat,
-        r.format,
+        r?.internalFormat ?? gl.RGBA,
+        r?.format ?? gl.RGBA,
         texType,
         gl.NEAREST
       );
       curl = createFBO(
         simRes.width,
         simRes.height,
-        r.internalFormat,
-        r.format,
+        r?.internalFormat ?? gl.RGBA,
+        r?.format ?? gl.RGBA,
         texType,
         gl.NEAREST
       );
       pressure = createDoubleFBO(
         simRes.width,
         simRes.height,
-        r.internalFormat,
-        r.format,
+        r?.internalFormat ?? gl.RGBA,
+        r?.format ?? gl.RGBA,
         texType,
         gl.NEAREST
       );
