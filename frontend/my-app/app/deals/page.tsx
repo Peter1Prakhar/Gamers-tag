@@ -12,7 +12,7 @@ export default function DealsPage() {
             <h1 className="text-4xl font-bold mb-4">Deals & Discounts</h1>
             <div className="h-1 w-24 bg-red-600 mb-8"></div>
             <p className="text-zinc-600 dark:text-gray-400 max-w-3xl">
-              Discover amazing deals and discounts on our premium products. Limited time offers you don't want to miss!
+              Discover amazing deals and discounts on our premium products. Limited time offers you don&apost want to miss!
             </p>
           </div>
 
