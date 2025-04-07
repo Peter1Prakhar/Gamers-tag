@@ -172,7 +172,7 @@ export default function CartPage() {
               </div>
 
               <div className="lg:col-span-1">
-                <div className="bg-white dark:bg-zinc-900 p-6 sticky top-24 relative">
+                <div className="bg-white dark:bg-zinc-900 p-6 sticky top-24">
                   <div className="absolute top-0 left-0 w-3 h-3 border-l border-t border-red-600"></div>
                   <div className="absolute top-0 right-0 w-3 h-3 border-r border-t border-red-600"></div>
                   <div className="absolute bottom-0 left-0 w-3 h-3 border-l border-b border-red-600"></div>
