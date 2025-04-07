@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { GamepadIcon as GameController, Menu, X, ShoppingCart, Search } from "lucide-react"
+import { GamepadIcon as  Menu, X, ShoppingCart, Search } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
 
 export function Navbar() {
@@ -21,10 +21,13 @@ export function Navbar() {
     <header className="border-b border-zinc-300 dark:border-red-900 sticky top-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="relative w-8 h-8">
-            <GameController className="h-6 w-6 text-red-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-            <div className="absolute inset-0 border border-red-600 rotate-45"></div>
-          </div>
+            <div className="relative w-8 h-8 mt-3">
+            <img
+              src="/icon.svg"
+              alt="Logo"
+              className="absolute inset-0 object-contain"
+            />
+            </div>
           <span className="font-bold text-xl tracking-tight">
           GAMER&#39;S<span className="text-red-600"> TAG</span>
           </span>

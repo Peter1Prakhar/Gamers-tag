@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { GamepadIcon as GameController, Facebook, Twitter, Instagram, Youtube } from "lucide-react"
+import { GamepadIcon as Facebook, Twitter, Instagram, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Footer() {
@@ -8,15 +8,18 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="relative w-8 h-8">
-                <GameController className="h-6 w-6 text-red-600 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
-                <div className="absolute inset-0 border border-red-600 rotate-45"></div>
-              </div>
-              <span className="font-bold text-xl tracking-tight">
-              GAMER&#39;S<span className="text-red-600"> TAG</span>
-              </span>
-            </Link>
+          <Link href="/" className="flex items-center gap-2">
+            <div className="relative w-8 h-8 mt-3">
+            <img
+              src="/icon.svg"
+              alt="Logo"
+              className="absolute inset-0 object-contain"
+            />
+            </div>
+          <span className="font-bold text-xl tracking-tight">
+          GAMER&#39;S<span className="text-red-600"> TAG</span>
+          </span>
+        </Link>
             <p className="text-zinc-600 dark:text-gray-400 mb-4">
               Your one-stop destination for all gaming needs. From the latest games to premium accessories, level up
               your gaming experience with us.
